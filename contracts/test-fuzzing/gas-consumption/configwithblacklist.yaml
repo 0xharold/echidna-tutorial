@@ -1,0 +1,4 @@
+seqLen: 2
+estimateGas: true
+filterBlacklist: true
+filterFunctions: ["C.pop()", "C.clear()"]

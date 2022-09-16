@@ -1,0 +1,31 @@
+/src/contracts/test-fuzzing/collecting-corpus/Magic.sol
+    | // SPDX-License-Identifier: MIT
+    | 
+    | /**
+    |  * This task is hard for a fuzzer -> better to use symbolic execution tool like Manticore
+    |  * 
+    |  */
+    | 
+    | pragma solidity 0.8.7;
+r   | 
+    | contract C {
+    |     bool value_found = false;
+    | 
+r   |     function magic(
+    |         uint256 magic_1,
+    |         uint256 magic_2,
+    |         uint256 magic_3,
+    |         uint256 magic_4
+    |     ) public {
+r   |         require(magic_1 == 42);
+r   |         require(magic_2 == 129);
+r   |         require(magic_3 == magic_4 + 333);
+    |         value_found = true;
+    |         return;
+    |     }
+    | 
+    |     function echidna_magic_values() public returns (bool) {
+    |         return !value_found;
+    |     }
+    | }
+    | 

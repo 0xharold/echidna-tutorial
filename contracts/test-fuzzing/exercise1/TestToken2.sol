@@ -4,7 +4,7 @@ pragma solidity 0.8.7;
 
 import "./Token.sol";
 
-/// @dev to run: $ echidna-test TestToken.sol
+/// @dev to run: $ echidna-test TestToken2.sol
 /// @notice do not forget to be in the correct folder
 
 contract TestToken2 is Token {

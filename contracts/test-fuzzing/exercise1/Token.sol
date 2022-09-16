@@ -5,7 +5,7 @@ pragma solidity 0.8.7;
 contract Ownership {
     address owner = msg.sender;
 
-    function Owner() public {
+    function Owner() external {
         owner = msg.sender;
     }
 
@@ -27,7 +27,7 @@ contract Pausable is Ownership {
         is_paused = true;
     }
 
-    function resume() public isOwner {
+    function resume() external isOwner {
         is_paused = false;
     }
 }
@@ -35,7 +35,7 @@ contract Pausable is Ownership {
 contract Token is Pausable {
     mapping(address => uint256) public balances;
 
-    function transfer(address to, uint256 value) public ifNotPaused {
+    function transfer(address to, uint256 value) external ifNotPaused {
         balances[msg.sender] -= value;
         balances[to] += value;
     }
